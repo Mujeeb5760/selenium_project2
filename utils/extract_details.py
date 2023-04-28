@@ -7,11 +7,11 @@ def extract_comments_details(soup):
         comment_text = comment.find('yt-formatted-string', {'id': 'content-text'}).text.strip()
         likes = comment.find('span', {'id': 'vote-count-middle'}).text.strip()
         comment_time = comment.find('a', {'class': 'yt-simple-endpoint style-scope yt-formatted-string'}).text.strip()
-        thumbnail_url_tag = comment.find('yt-img-shadow', {"class": "style-scope ytd-comment-renderer no-transition"})
-        if thumbnail_url_tag is not None:
-            thumbnail_url = thumbnail_url_tag.find('img').get('src')
+        thumbmail_url_tag = comment.find('yt-img-shadow', {"class": "style-scope ytd-comment-renderer no-transition"})
+        if thumbmail_url_tag is not None:
+            thumbmail_url = thumbmail_url_tag.find('img').get('src')
         else:
-            thumbnail_url = None
-        comments.append([user_name, comment_text, comment_time, likes, thumbnail_url])
+            thumbmail_url = None
+        comments.append([user_name, comment_text, comment_time, likes, thumbmail_url])
 
     return comments
